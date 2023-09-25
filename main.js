@@ -1,22 +1,22 @@
   /*----- constants -----*/
   //the amount of guess the player has
-  const INITIAL_GUESSES = 8;
-  //a timer to add some stakes
-  const TIMER = 5;
+  const INITIAL_GUESSES = 12;
+  //score needed to win
+  const WINNING_SCORE = 6;
   //id of the gameboard arena elment
-  const ARENA_ID = 'arena';
+  const GAMEBOARD_ID = 'arena';
   //id of the start button element
-  const PRESS_START_ID = 'press-start';
+  const STARTBUTTON_ID = 'press-start';
   //id of the lifebar element
-  const LIFEBAR_ID = 'lifebar';
+  const GUESSES_DISPLAY_ID = 'guesses';
   //id of the cards
-  const FIGHTERS_ID = 'cards';
+  const CARDS_ID = 'cards';
   //id of loss display
-  const LOSS_ID = 'fatality';
+  const GMAE_LOSS_ID = 'fatality';
   //id of no mistakes win
-  const FLAWLESS_WIN_ID = 'flawless-victory';
+  const FLAWLESS_SCORE_ID = 'flawless-victory';
   //an array of all cards
-  const CARD_ARRAY = [];
+  const CARD_ARRAY_ID = [];
 
 
 
@@ -26,10 +26,10 @@
 
   /*----- state variables -----*/
   //initial lifebar
-  let lifebar;
+  let guesses;
   //matched cards
   //stashed in initialize as an array
-  let matches;
+  let cardsMatched = [];
   //win message
   //score
   let score;
@@ -40,22 +40,24 @@
 
   /*----- cached elements  -----*/
   //the start buton element
-  const pressStart = document.getElementById('press-start');
+  const pressStart = document.getElementById(STARTBUTTON_ID);
   //arena element
-  const fightArena = document.getElementById('arena');
+  const gameBoard = document.getElementById(GAMEBOARD_ID);
   //lifebar element
-  const lifebarDisplay = document.getElementById('lifebar');
+  // const lifebarDisplay = document.getElementById(LIFEBAR_ID);
   //cards element
-  const fighters = document.getElementById('cards')
+  const cards = document.getElementById(CARDS_ID);
+  //guesses element
+  const guessDisplay = document.getElementById(GUESSES_DISPLAY_ID);
 
 
   /*----- event listeners -----*/
   //event listener to begin game
-  pressStart.addEventListener('click', beginMatch);
+  pressStart.addEventListener('click', initializeGame);
   //event listener to indicate hover
-  fighters.addEventListener('mouseover', fighterCombo);
+  // fighters.addEventListener('mouseover', fighterCombo);
   //event listener for player choice of cards
-  fighters.addEventListener('click', fighterCombo);
+  // cards.addEventListener('click', flipCard);
 
 
 
