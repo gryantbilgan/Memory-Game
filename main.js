@@ -6,7 +6,7 @@
   //id of the gameboard arena elment
   const GAMEBOARD_ID = 'arena';
   //id of the start button element
-  const STARTBUTTON_ID = 'press-start';
+  const INIT_BUTTON_ID = 'press-start';
   //id of the lifebar element
   const GUESSES_DISPLAY_ID = 'guesses';
   //id of the cards
@@ -40,7 +40,7 @@
 
   /*----- cached elements  -----*/
   //the start buton element
-  const pressStart = document.getElementById(STARTBUTTON_ID);
+  const initGame = document.getElementById(INIT_BUTTON_ID);
   //arena element
   const gameBoard = document.getElementById(GAMEBOARD_ID);
   //lifebar element
@@ -53,7 +53,7 @@
 
   /*----- event listeners -----*/
   //event listener to begin game
-  pressStart.addEventListener('click', initializeGame);
+  startGame.addEventListener('click', initializeGame);
   //event listener to indicate hover
   // fighters.addEventListener('mouseover', fighterCombo);
   //event listener for player choice of cards

@@ -6,10 +6,19 @@
     font-family: 'MortalKombatOne';
     src: url(fonts/mortalkombat1.ttf) format('truetype');
 }
+
+* {
+    color: red;
+}
 body {
-    background-image: url();
+    background-image: url(images/The\ pit.jpeg);
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    background-repeat: no-repeat;
 }
 
 h1 {
     font-family: 'MortalKombatTitle', sans-serif;
+    text-align: center;
 }
