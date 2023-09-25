@@ -1,7 +1,15 @@
 @font-face {
-    font-family:;
-    src: url();
+    font-family: 'MortalKombatTitle';
+    src: url(fonts/MKtitle.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'MortalKombatOne';
+    src: url(fonts/mortalkombat1.ttf) format('truetype');
 }
 body {
-    font-family:;
+    background-image: url();
+}
+
+h1 {
+    font-family: 'MortalKombatTitle', sans-serif;
 }
