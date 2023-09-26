@@ -23,6 +23,20 @@ h1 {
     text-align: center;
 }
 
+#game-board{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    width: 300px;
+}
+
+img {
+    height: 100px;
+    width: 100px;
+}
+
 #init-button {
     font-size: 20px;
 }

@@ -121,6 +121,7 @@
   //game initialize function
     //random shuffle of cards function
   function initializeGame() {
+    console.log(initializeGame);
     score = 0;
     guesses = INITIAL_GUESSES;
     cardsMatched = [];
@@ -134,6 +135,7 @@
 
   //game render function
   function render () {
+    console.log(render);
     guessDisplay.innerText = `Guesses Left: ${guesses}`;
     scoreDisplay.innerText = `Score: ${score}`;
     renderCards();
@@ -141,10 +143,13 @@
 
   //render cards function
   function renderCards () {
-    for (let i = 0; i > CARD_ARRAY.length; i++) {
+    console.log(renderCards);
+    for (let i = 0; i < CARD_ARRAY.length; i++) {
       let card = document.createElement('img');
-      card.setAttribute()
-
+      card.setAttribute('src', 'images/mk logo.png');
+      card.setAttribute('data-id', i);
+      // card.addEventListener('click', handleCardClick);
+      gameBoard.appendChild(card);
     }
     shuffleCards();
   }
