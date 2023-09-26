@@ -1,6 +1,6 @@
   /*----- constants -----*/
   //the amount of guess the player has
-  const INITIAL_GUESSES = 15;
+  const INITIAL_GUESSES = 24;
   //score needed to win
   const WINNING_SCORE = 6;
   //id of the gameboard arena elment
@@ -119,39 +119,84 @@
 
   /*----- functions -----*/
   //game initialize function
-    //random shuffle of cards function
   function initializeGame() {
     console.log(initializeGame);
+    //set score to 0
     score = 0;
+    //set guesses to 0
     guesses = INITIAL_GUESSES;
+    //have an empty array because no cards have been matched
     cardsMatched = [];
+    //set blank gameboard
     gameBoard.innerHTML = '';
+    //disable start button
     initButton.disabled = true;
+    //hide start button
     initButton.style.display = 'none';
+    //call shuffle cards function
     shuffleCards();
+    //call render function
     render();
+    //call render cards function
     renderCards();
   }
 
   //game render function
   function render () {
     console.log(render);
+    //set guesses display to current guess remaining
     guessDisplay.innerText = `Guesses Left: ${guesses}`;
+    //set score display to current score
     scoreDisplay.innerText = `Score: ${score}`;
-    renderCards();
   }
 
   //render cards function
   function renderCards () {
     console.log(renderCards);
+    //iterate over cards array
     for (let i = 0; i < CARD_ARRAY.length; i++) {
+      //create an element to display cards on gameboard
       let card = document.createElement('img');
+      //set an attribute for back of cards
       card.setAttribute('src', 'images/mk logo.png');
+      //set attribute to a 'data-id' for the repeating elements
       card.setAttribute('data-id', i);
       // card.addEventListener('click', handleCardClick);
+      //append the cards to the parent gameboard
       gameBoard.appendChild(card);
     }
+    //call the shuffle cards function to render a shuffled set
     shuffleCards();
+  }
+
+  //handle card click function
+  function handleCardClick (event) {
+    //get the card clicked element
+    const clickedCard = event.target;
+    //check if card clicked is matched or not
+    if (cardsMatched.includes(clickedCard)) {
+      //if it is, do nothing
+      return;
+    }
+    //get the data-id attribute of the clicked card
+    const clickedCardIdx = parseInt(clickedCard.getAttribute('data-id'));
+    //get the card object from the shuffled cards array using index
+    const clickedCardObj = shuffledCards[clickedCardIdx];
+    //check if there are already two cards selected
+    if (cardsSelected.length < 2) {
+      //add the clicked card to the selected cards array
+      cardsSelected.push({cardEl: clickedCard, cardObj: clickedCardObj});
+      //flip the card to show its image
+      clickedCard.setAttribute('src', clickedCardObj.img);
+    }
+    //check if two cards have been selected
+    if (cardsSelected === 2) {
+      //compare the two cards
+      if (cardsSelected[0].cardObj.name === cardsSelected[1].cardObj.name) {
+        //increment score if matched
+        score += 1;
+      }
+    }
   }
 
   //matching choices function
@@ -170,9 +215,7 @@
     //if a card has not been clicked then add card to an array of clicked cards
     //loss of lifebar(incorrect choices) function
   
-  //   function handleCardClick(event) {
-  //     if ()
-  // }
+  
 
 
   //game won function(check winner)
