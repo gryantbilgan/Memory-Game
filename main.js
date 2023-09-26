@@ -1,22 +1,22 @@
   /*----- constants -----*/
   //the amount of guess the player has
-  const INITIAL_GUESSES = 12;
+  const INITIAL_GUESSES = 15;
   //score needed to win
   const WINNING_SCORE = 6;
   //id of the gameboard arena elment
-  const GAMEBOARD_ID = 'arena';
+  const GAMEBOARD_ID = 'game-board';
   //id of the start button element
-  const INIT_BUTTON_ID = 'press-start';
+  const INIT_BUTTON_ID = 'init-button';
   //id of the lifebar element
   const GUESSES_DISPLAY_ID = 'guesses';
   //id of the cards
   const CARDS_ID = 'cards';
   //id of loss display
-  const GMAE_LOSS_ID = 'fatality';
+  const GAME_LOSS_ID = 'fatality';
   //id of no mistakes win
   const FLAWLESS_SCORE_ID = 'flawless-victory';
   //an array of all cards
-  const CARD_ARRAY_ID = [];
+  const CARD_ARRAY = ['a', 'a', 'b', 'b', 'c', 'c', 'd', 'd', 'e', 'e', 'f', 'f'];
 
 
 
@@ -33,14 +33,16 @@
   //win message
   //score
   let score;
+  let shuffledCards = [];
+  let cardsSelected
 
 
 
 
 
   /*----- cached elements  -----*/
-  //the start buton element
-  const initGame = document.getElementById(INIT_BUTTON_ID);
+  //the start button element
+  const initButton = document.getElementById(INIT_BUTTON_ID);
   //arena element
   const gameBoard = document.getElementById(GAMEBOARD_ID);
   //lifebar element
@@ -57,7 +59,7 @@
   //event listener to indicate hover
   // fighters.addEventListener('mouseover', fighterCombo);
   //event listener for player choice of cards
-  // cards.addEventListener('click', flipCard);
+  gameBoard.addEventListener('click', handleCardClick);
 
 
 
@@ -65,10 +67,32 @@
   /*----- functions -----*/
   //game initialize function
     //random shuffle of cards function
+  function initializeGame() {
+    score = 0;
+    guesses = INITIAL_GUESSES;
+    cardsMatched = [];
+    gameBoard.innerHTML = '';
+    initButton.disabled = true;
+    initButton.style.display = 'none';
+    shuffle();
+    render();
+    renderCards();
+  }
 
   //game render function
+  function render () {
+    guessDisplay.innerText = `Guesses Left: ${guesses}`;
+    
+  }
 
   //matching choices function
+  function checkForMatches () {
+
+  }
+
+  function flipCard () {
+
+  }
     //sound alert for correct matches
     //sound alert for incorrect matches
     //check if a card has been clicked and there is a match add card to a matched cards array(or disable click on matched elements)
@@ -76,6 +100,10 @@
     //check if a match hasn't been made
     //if a card has not been clicked then add card to an array of clicked cards
     //loss of lifebar(incorrect choices) function
+  
+  //   function handleCardClick(event) {
+  //     if ()
+  // }
 
 
   //game won function(check winner)
@@ -111,3 +139,9 @@
         //identify cards chosen
         //push to the cards to a chosen array
         //set timeout for time of card display
+
+//shuffle card function
+function shuffle() {
+  shuffledCards = [...CARD_ARRAY];
+  shuffledCards.sort(() => .5 - Math.random());
+}
