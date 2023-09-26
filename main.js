@@ -7,16 +7,67 @@
   const GAMEBOARD_ID = 'game-board';
   //id of the start button element
   const INIT_BUTTON_ID = 'init-button';
-  //id of the lifebar element
+  //id of the guesses remaining element
   const GUESSES_DISPLAY_ID = 'guesses';
+  //id of the score display element
+  const SCORE_DISPLAY_ID = 'score';
   //id of the cards
-  const CARDS_ID = 'cards';
+  // const CARDS_ID = 'cards';
   //id of loss display
   const GAME_LOSS_ID = 'fatality';
   //id of no mistakes win
   const FLAWLESS_SCORE_ID = 'flawless-victory';
   //an array of all cards
-  const CARD_ARRAY = ['a', 'a', 'b', 'b', 'c', 'c', 'd', 'd', 'e', 'e', 'f', 'f'];
+  const CARD_ARRAY = [
+    {
+        name: 'scoprion',
+        img: 'images/scorpion.png'
+    },
+    {
+        name: 'scoprion',
+        img: 'images/scorpion.png'
+    },
+    {
+        name: 'subzero',
+        img: 'images/subzero.png'
+    },
+    {
+        name: 'subzero',
+        img: 'images/subzero.png'
+    },
+    {
+        name: 'sonya',
+        img: 'images/sonya.png'
+    },
+    {
+        name: 'sonya',
+        img: 'images/sonya.png'
+    },
+    {
+        name: 'liu kang',
+        img: 'images/liu kang.png'
+    },
+    {
+        name: 'liu kang',
+        img: 'images/liu kang.png'
+    },
+    {
+        name: 'raiden',
+        img: 'images/raiden.png'
+    },
+    {
+        name: 'raiden',
+        img: 'images/raiden.png'
+    },
+    {
+        name: 'johnnycage',
+        img: 'images/johnnycage.png'
+    },
+    {
+        name: 'johnnycage',
+        img: 'images/johnnycage.png'
+    }
+];
 
 
 
@@ -33,8 +84,8 @@
   //win message
   //score
   let score;
-  let shuffledCards = [];
-  let cardsSelected
+  let shuffledCards;
+  let cardsSelected;
 
 
 
@@ -48,14 +99,16 @@
   //lifebar element
   // const lifebarDisplay = document.getElementById(LIFEBAR_ID);
   //cards element
-  const cards = document.getElementById(CARDS_ID);
+  // const cards = document.getElementById(CARDS_ID);
   //guesses element
   const guessDisplay = document.getElementById(GUESSES_DISPLAY_ID);
+  //score display element
+  const scoreDisplay = document.getElementById(SCORE_DISPLAY_ID);
 
 
   /*----- event listeners -----*/
   //event listener to begin game
-  startGame.addEventListener('click', initializeGame);
+  initButton.addEventListener('click', initializeGame);
   //event listener to indicate hover
   // fighters.addEventListener('mouseover', fighterCombo);
   //event listener for player choice of cards
@@ -74,7 +127,7 @@
     gameBoard.innerHTML = '';
     initButton.disabled = true;
     initButton.style.display = 'none';
-    shuffle();
+    shuffleCards();
     render();
     renderCards();
   }
@@ -82,7 +135,18 @@
   //game render function
   function render () {
     guessDisplay.innerText = `Guesses Left: ${guesses}`;
-    
+    scoreDisplay.innerText = `Score: ${score}`;
+    renderCards();
+  }
+
+  //render cards function
+  function renderCards () {
+    for (let i = 0; i > CARD_ARRAY.length; i++) {
+      let card = document.createElement('img');
+      card.setAttribute()
+
+    }
+    shuffleCards();
   }
 
   //matching choices function
@@ -141,7 +205,7 @@
         //set timeout for time of card display
 
 //shuffle card function
-function shuffle() {
+function shuffleCards() {
   shuffledCards = [...CARD_ARRAY];
   shuffledCards.sort(() => .5 - Math.random());
 }
