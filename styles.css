@@ -21,10 +21,22 @@ body {
 h1 {
     font-family: 'MortalKombatTitle', sans-serif;
     text-align: center;
+    font-size: 80px;
+    margin-top: 0px;
 }
 
 .game-ctr {
     font-family: 'MortalKombatOne', sans-serif;
+}
+
+h2 {
+    font-size: 60px;
+    text-align: center;
+    color: yellow;
+}
+
+h3 {
+    font-size: 40px;
 }
 
 img {
