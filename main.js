@@ -45,11 +45,11 @@
     },
     {
         name: 'liu kang',
-        img: 'images/liu kang.png'
+        img: 'images/liukang.png'
     },
     {
         name: 'liu kang',
-        img: 'images/liu kang.png'
+        img: 'images/liukang.png'
     },
     {
         name: 'raiden',
@@ -155,7 +155,7 @@
       //create an element to display cards on gameboard
       let card = document.createElement('img');
       //set an attribute for back of cards
-      card.setAttribute('src', 'images/mk logo.png');
+      card.setAttribute('src', 'images/mklogo.png');
       //set attribute to a 'data-id' for the repeating elements
       card.setAttribute('data-id', i);
       // card.addEventListener('click', handleCardClick);
@@ -208,8 +208,8 @@
         guesses -= 1;
         setTimeout(() => {
           //after a short delay, flip unmatched cards back
-          cardsSelected[0].cardEl.setAttribute('src', 'images/mk logo.png');
-          cardsSelected[1].cardEl.setAttribute('src', 'images/mk logo.png');
+          cardsSelected[0].cardEl.setAttribute('src', 'images/mklogo.png');
+          cardsSelected[1].cardEl.setAttribute('src', 'images/mklogo.png');
           cardsSelected = [];
           //clear cards selected array
           //delay for .5 seconds before flip back
@@ -217,7 +217,9 @@
       }
       //update game display
       render();
-      checkWin();
+      if (score === WINNING_SCORE || guesses === 0) {
+        checkWin();
+      }
     }
   }
   
@@ -238,7 +240,7 @@
     initButton.disabled = false;
     //button is returned to the display at end of game
     initButton.style.display = "block";
-    // gameBoard.innerHTML = "";
+    gameBoard.innerHTML = "";
 }
   
   //shuffle card function
