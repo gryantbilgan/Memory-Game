@@ -20,11 +20,11 @@
   //an array of all cards
   const CARD_ARRAY = [
     {
-        name: 'scoprion',
+        name: 'scorpion',
         img: 'images/scorpion.png'
     },
     {
-        name: 'scoprion',
+        name: 'scorpion',
         img: 'images/scorpion.png'
     },
     {
@@ -195,7 +195,6 @@
     }
     //check if two cards have been selected
     if (cardsSelected.length === 2) {
-      console.log(cardsSelected);
       //compare the two cards to see if there is a through their index an property
       if (cardsSelected[0].cardObj.name === cardsSelected[1].cardObj.name) {
         //increment score if matched
@@ -208,7 +207,6 @@
         //if they don't match, remove a guess
         guesses -= 1;
         setTimeout(() => {
-          console.log(cardsSelected);
           //after a short delay, flip unmatched cards back
           cardsSelected[0].cardEl.setAttribute('src', 'images/mk logo.png');
           cardsSelected[1].cardEl.setAttribute('src', 'images/mk logo.png');
