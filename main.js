@@ -85,7 +85,7 @@
   //score
   let score;
   let shuffledCards;
-  let cardsSelected;
+  let cardsSelected = [];
 
 
 
@@ -171,42 +171,76 @@
 
   //handle card click function
   function handleCardClick (event) {
+    console.log(handleCardClick);
     //get the card clicked element
+    
+    console.log(event.target)
+    
     const clickedCard = event.target;
+    
     //check if card clicked is matched or not
     if (cardsMatched.includes(clickedCard)) {
       //if it is, do nothing
+      
       return;
     }
-    //get the data-id attribute of the clicked card
+    //changing the id into a string
     const clickedCardIdx = parseInt(clickedCard.getAttribute('data-id'));
     //get the card object from the shuffled cards array using index
+    
     const clickedCardObj = shuffledCards[clickedCardIdx];
+    
     //check if there are already two cards selected
     if (cardsSelected.length < 2) {
       //add the clicked card to the selected cards array
       cardsSelected.push({cardEl: clickedCard, cardObj: clickedCardObj});
+      
       //flip the card to show its image
       clickedCard.setAttribute('src', clickedCardObj.img);
+      
     }
     //check if two cards have been selected
-    if (cardsSelected === 2) {
+    if (cardsSelected.length === 2) {
+      console.log('bryant was here')
+      
       //compare the two cards
       if (cardsSelected[0].cardObj.name === cardsSelected[1].cardObj.name) {
         //increment score if matched
         score += 1;
+        cardsMatched.push(cardsSelected[0].cardEl, cardsSelected[1].cardEl);
+        //clear cards selected array
+        cardsSelected = [];
+      } else {
+        //if they don't match, remove a guess
+        guesses -= 1;
+        setTimeout(() => {
+          //after a short delay, flip unmatched cards back
+          cardsSelected[0].cardEl.setAttribute('src', 'images/mk logo.png');
+          cardsSelected[1].cardEl.setAttribute('src', 'images/mk logo.png');
+          //clear cards selected array
+          cardsSelected = [];
+          //delay for .5 seconds before flip back
+        }, 500);
       }
+      //check if game is over
+      if (score === WINNING_SCORE) {
+        gameWin();
+      } else if (guesses === 0) {
+        gameLoss();
+      }
+      //update game display
+      render();
     }
   }
 
   //matching choices function
-  function checkForMatches () {
+  // function checkForMatches () {
 
-  }
+  // }
 
-  function flipCard () {
+  // function flipCard () {
 
-  }
+  // }
     //sound alert for correct matches
     //sound alert for incorrect matches
     //check if a card has been clicked and there is a match add card to a matched cards array(or disable click on matched elements)
