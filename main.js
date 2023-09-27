@@ -1,6 +1,6 @@
   /*----- constants -----*/
   //the amount of guess the player has
-  const INITIAL_GUESSES = 24;
+  const INITIAL_GUESSES = 12;
   //score needed to win
   const WINNING_SCORE = 6;
   //id of the gameboard arena elment
@@ -120,7 +120,6 @@
   /*----- functions -----*/
   //game initialize function
   function initializeGame() {
-    console.log(initializeGame);
     //set score to 0
     score = 0;
     //set guesses to 0
@@ -143,7 +142,6 @@
 
   //game render function
   function render () {
-    console.log(render);
     //set guesses display to current guess remaining
     guessDisplay.innerText = `Guesses Left: ${guesses}`;
     //set score display to current score
@@ -152,7 +150,6 @@
 
   //render cards function
   function renderCards () {
-    console.log(renderCards);
     //iterate over cards array
     for (let i = 0; i < CARD_ARRAY.length; i++) {
       //create an element to display cards on gameboard
@@ -171,10 +168,7 @@
 
   //handle card click function
   function handleCardClick (event) {
-    console.log(handleCardClick);
     //get the card clicked element
-    
-    console.log(event.target)
     
     const clickedCard = event.target;
     
@@ -192,21 +186,21 @@
     
     //check if there are already two cards selected
     if (cardsSelected.length < 2) {
-      //add the clicked card to the selected cards array
+      //add the clicked card to the selected cards array by assigning and element and an object
       cardsSelected.push({cardEl: clickedCard, cardObj: clickedCardObj});
       
-      //flip the card to show its image
+      //flip the card to show its image by grabbing it by its property
       clickedCard.setAttribute('src', clickedCardObj.img);
       
     }
     //check if two cards have been selected
     if (cardsSelected.length === 2) {
-      console.log('bryant was here')
       
-      //compare the two cards
+      //compare the two cards to see if there is a through their index an property
       if (cardsSelected[0].cardObj.name === cardsSelected[1].cardObj.name) {
         //increment score if matched
         score += 1;
+        //push the two matched cards into an array
         cardsMatched.push(cardsSelected[0].cardEl, cardsSelected[1].cardEl);
         //clear cards selected array
         cardsSelected = [];
@@ -222,17 +216,39 @@
           //delay for .5 seconds before flip back
         }, 500);
       }
-      //check if game is over
-      if (score === WINNING_SCORE) {
-        gameWin();
-      } else if (guesses === 0) {
-        gameLoss();
-      }
       //update game display
+      checkWin();
       render();
     }
   }
-
+  
+  //check if game is over
+  function checkWin() {
+    //if the state score increments to the set score
+    if (score === WINNING_SCORE) {
+      // debugger
+      scoreDisplay.innerText = "Victory";
+      console.log("Victory!");
+    } else if (guesses === 0) {
+      scoreDisplay.innerText = "You Lose!"
+      console.log("You lose!");
+    }
+    //press start button is replaced with rematch button
+    initButton.innerText = "Rematch?"
+    //button is re-enabled at end of game
+    initButton.disabled = false;
+    //button is returned to the display at end of game
+    initButton.style.display = "block";
+    gameBoard.innerHTML = "";
+}
+  
+  //shuffle card function
+  function shuffleCards() {
+    //modify the the card array and assign it to a new array using rest operator
+    shuffledCards = [...CARD_ARRAY];
+    //shuffle cards through by giving it a positive or negative value
+    shuffledCards.sort(() => .5 - Math.random());
+  }
   //matching choices function
   // function checkForMatches () {
 
@@ -285,9 +301,3 @@
         //identify cards chosen
         //push to the cards to a chosen array
         //set timeout for time of card display
-
-//shuffle card function
-function shuffleCards() {
-  shuffledCards = [...CARD_ARRAY];
-  shuffledCards.sort(() => .5 - Math.random());
-}
