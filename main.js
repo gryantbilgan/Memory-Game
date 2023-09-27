@@ -195,30 +195,31 @@
     }
     //check if two cards have been selected
     if (cardsSelected.length === 2) {
-      
+      console.log(cardsSelected);
       //compare the two cards to see if there is a through their index an property
       if (cardsSelected[0].cardObj.name === cardsSelected[1].cardObj.name) {
         //increment score if matched
         score += 1;
         //push the two matched cards into an array
-        cardsMatched.push(cardsSelected[0].cardEl, cardsSelected[1].cardEl);
+        // cardsMatched.push(cardsSelected[0].cardEl, cardsSelected[1].cardEl);
         //clear cards selected array
         cardsSelected = [];
       } else {
         //if they don't match, remove a guess
         guesses -= 1;
         setTimeout(() => {
+          console.log(cardsSelected);
           //after a short delay, flip unmatched cards back
           cardsSelected[0].cardEl.setAttribute('src', 'images/mk logo.png');
           cardsSelected[1].cardEl.setAttribute('src', 'images/mk logo.png');
-          //clear cards selected array
           cardsSelected = [];
+          //clear cards selected array
           //delay for .5 seconds before flip back
         }, 500);
       }
       //update game display
-      checkWin();
       render();
+      checkWin();
     }
   }
   
@@ -230,7 +231,7 @@
       scoreDisplay.innerText = "Victory";
       console.log("Victory!");
     } else if (guesses === 0) {
-      scoreDisplay.innerText = "You Lose!"
+      guessDisplay.innerText = "You Lose!"
       console.log("You lose!");
     }
     //press start button is replaced with rematch button
@@ -239,7 +240,7 @@
     initButton.disabled = false;
     //button is returned to the display at end of game
     initButton.style.display = "block";
-    gameBoard.innerHTML = "";
+    // gameBoard.innerHTML = "";
 }
   
   //shuffle card function
