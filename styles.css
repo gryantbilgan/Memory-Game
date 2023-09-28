@@ -7,9 +7,6 @@
     src: url(fonts/mortalkombat1.ttf) format('truetype');
 }
 
-/* * {
-    color: red;
-} */
 body {
     background-image: url(images/thepit.jpeg);
     background-size: cover;

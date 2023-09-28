@@ -209,6 +209,7 @@ function checkWin() {
   initButton.innerText = "Rematch?"
   // button is re-enabled at end of game
   initButton.disabled = false;
+  // re-display the button
   initButton.style.display = "inline-block";
   // reset the game board
   gameBoard.innerHTML = "";
