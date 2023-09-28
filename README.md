@@ -29,7 +29,7 @@ Click the following link to be redirected to the Wireframe and Design Inspiratio
 </div>
 
 <div align='center'>
-    <h2>:fist: Round One</h2>
+    <h2>:closed-fist: Round One</h2>
 </div>
 <h2>Main Menu</h2>
 
