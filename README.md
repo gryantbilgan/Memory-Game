@@ -84,14 +84,14 @@ function shuffleCards() {
 
 ## 📈 Plans for the future:
 
-This memory game was challenging but a lof of fun to build. My mind was definitely tested throughout. Here are some things that I would like to add as I work further on the game:
-- [] Add audio for that is unique to each of the characters when they have been matched.
-- [] Add audio to the main menu, when the game is loaded, and when the game has been ended(victory or defeat).
-- [] Replace guess counter with an animated lifebar that will decrease when incorrect guesses happen and hit sound effects.
-- [] Replace score counter with a combos counter and hit sound effects.
-- [] Add more characters.
-- [] Increase number of cards flipped and needed to be matched.
-- [] Add more levels that will increase diffculty pertaining to more cards needing to be matched.
-- [] Increase over all user interaction and user experience by making the game more dynamic.
-
 </div>
+
+This memory game was challenging but a lof of fun to build. My mind was definitely tested throughout. Here are some things that I would like to add as I work further on the game:
+- [ ] Add audio for that is unique to each of the characters when they have been matched.
+- [ ] Add audio to the main menu, when the game is loaded, and when the game has been ended(victory or defeat).
+- [ ]Replace guess counter with an animated lifebar that will decrease when incorrect guesses happen and hit sound effects.
+- [ ] Replace score counter with a combos counter and hit sound effects.
+- [ ] Add more characters.
+- [ ] Increase number of cards flipped and needed to be matched.
+- [ ] Add more levels that will increase diffculty pertaining to more cards needing to be matched.
+- [ ] Increase over all user interaction and user experience by making the game more dynamic.
