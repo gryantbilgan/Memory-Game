@@ -76,13 +76,8 @@
 
 
   /*----- state variables -----*/
-  //initial lifebar
   let guesses;
-  //matched cards
-  //stashed in initialize as an array
   let cardsMatched = [];
-  //win message
-  //score
   let score;
   let shuffledCards;
   let firstPickedCard = null;
@@ -96,10 +91,6 @@
   const initButton = document.getElementById(INIT_BUTTON_ID);
   //arena element
   const gameBoard = document.getElementById(GAMEBOARD_ID);
-  //lifebar element
-  // const lifebarDisplay = document.getElementById(LIFEBAR_ID);
-  //cards element
-  // const cards = document.getElementById(CARDS_ID);
   //guesses element
   const guessDisplay = document.getElementById(GUESSES_DISPLAY_ID);
   //score display element
@@ -109,8 +100,6 @@
   /*----- event listeners -----*/
   //event listener to begin game
   initButton.addEventListener('click', initializeGame);
-  //event listener to indicate hover
-  // fighters.addEventListener('mouseover', fighterCombo);
   //event listener for player choice of cards
   gameBoard.addEventListener('click', handleCardClick);
 
@@ -192,8 +181,8 @@
         //card matched
         //increment score by one
         score += 1;
-        //push the two matched cards into an array
-        // cardsMatched.push(cardsSelected[0].cardEl, cardsSelected[1].cardEl);
+        //push the two matched cards into the matched array
+        cardsMatched.push(firstPickedCard.cardEl, clickedCardEl);
         //return the first card picked value to null
         firstPickedCard = null;
       } else {
