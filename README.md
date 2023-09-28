@@ -6,5 +6,12 @@
 
 #### A memory card match game that will test your mind. I have nothing further to teach you. You possess the knowledge. All that is lacking now is the will.
 
-First project for general assembly- Memory Game
-[WireFrame] https://lucid.app/lucidchart/268551a2-ba33-473d-bbd5-24a7672ff4e2/edit?invitationId=inv_d5daea5c-ccd6-4b16-abc6-cf8668f00257
+### Built by: **[Bryant Gilgan](https://www.linkedin.com/in/bryant-gilgan/)**
+
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
+
+![JS badge](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+![HTML badge](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS badge](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
