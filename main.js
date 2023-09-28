@@ -135,13 +135,13 @@
     //call shuffle cards function
     shuffleCards();
     //call render function
-    render();
+    renderText();
     //call render cards function
     renderCards();
   }
 
   //game render function
-  function render () {
+  function renderText () {
     //set guesses display to current guess remaining
     guessDisplay.innerText = `Guesses Left: ${guesses}`;
     //set score display to current score
@@ -162,8 +162,6 @@
       //append the cards to the parent gameboard
       gameBoard.appendChild(card);
     }
-    //call the shuffle cards function to render a shuffled set
-    shuffleCards();
   }
 
   //handle card click function
@@ -185,7 +183,7 @@
     const clickedCardObj = shuffledCards[clickedCardIdx];
     
     //check if there are already two cards selected
-    if (cardsSelected.length < 2) {
+    if (selectedCard.length < 2) {
       //add the clicked card to the selected cards array by assigning and element and an object
       cardsSelected.push({cardEl: clickedCard, cardObj: clickedCardObj});
       
@@ -216,7 +214,7 @@
         }, 500);
       }
       //update game display
-      render();
+      renderText();
       if (score === WINNING_SCORE || guesses === 0) {
         checkWin();
       }
@@ -250,55 +248,3 @@
     //shuffle cards through by giving it a positive or negative value
     shuffledCards.sort(() => .5 - Math.random());
   }
-  //matching choices function
-  // function checkForMatches () {
-
-  // }
-
-  // function flipCard () {
-
-  // }
-    //sound alert for correct matches
-    //sound alert for incorrect matches
-    //check if a card has been clicked and there is a match add card to a matched cards array(or disable click on matched elements)
-    //check if a match has been made
-    //check if a match hasn't been made
-    //if a card has not been clicked then add card to an array of clicked cards
-    //loss of lifebar(incorrect choices) function
-  
-  
-
-
-  //game won function(check winner)
-    //check for conditions of a all matched cards
-
-  //rematch game function
-    //random shuffle of cards
-    //check winner
-
-
-    /*----- functions -----*/
-
-    //game initialize function
-        //set gameboard
-        //loop through cards array
-        //append to 'grid' of gameboard
-
-
-    //check for match function
-        //grab cards that have been chosen out of the array
-        //give two options to pick card1 and card 2
-        //set alert when a match has been made
-        //leave cards flipped over
-        //set alert to continue choosing if match hasnt been made
-        //cards flip back over if no match
-        //if either match or no match, clear the cards chosen array so they can continue flipping
-        //display score when a match has been made
-        //if the cards matches equals to the full cards array length then the game has been won
-
-
-
-    //flip card function
-        //identify cards chosen
-        //push to the cards to a chosen array
-        //set timeout for time of card display

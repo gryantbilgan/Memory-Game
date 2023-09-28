@@ -58,8 +58,8 @@ h3 {
 }
 
 img {
-    height: calc(15% - 10px);
-    width: calc(13.33% - 10px);
+    height: calc(15% - 5px);
+    width: calc(13.33% - 5px);
     margin: 5px;
 }
 
@@ -69,4 +69,5 @@ img {
     bottom: 0px;
     color: #00FF40;
     background-color: black;
+    font-family: 'MortalKombatOne', sans-serif;
 }
