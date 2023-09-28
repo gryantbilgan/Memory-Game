@@ -80,5 +80,18 @@ function shuffleCards() {
 ```
 <div align='center'>
 
-### The code block above was not the most important function in my program, but it was valuable. There are other ways to shuffle items from an array, and I decided to use this one because it seemed most simple for me at the time. I was able to assign my array of a set of cards to a variable that had no value yet by using the rest operator as my type of reference. Then I was able to sort through this array and shuffle the cards with Math.random(). Because Math.random returns a value that is greater than or equal to zero and less than one. When I subtracted that random value by .5 I am able to get a positive or negative value which the sort method would arrange the cards in a different way each time based off of their value.
+#### The code block above was not the most important function in my program, but it was valuable. There are other ways to shuffle items from an array, and I decided to use this one because it seemed most simple for me at the time. I was able to assign my array of a set of cards to a variable that had no value yet by using the rest operator as my type of reference. Then I was able to sort through this array and shuffle the cards with Math.random(). Because Math.random returns a value that is greater than or equal to zero and less than one. When I subtracted that random value by .5 I am able to get a positive or negative value which the sort method would arrange the cards in a different way each time based off of their value.
+
+## 📈 Plans for the future:
+
+This memory game was challenging but a lof of fun to build. My mind was definitely tested throughout. Here are some things that I would like to add as I work further on the game:
+- [] Add audio for that is unique to each of the characters when they have been matched.
+- [] Add audio to the main menu, when the game is loaded, and when the game has been ended(victory or defeat).
+- [] Replace guess counter with an animated lifebar that will decrease when incorrect guesses happen and hit sound effects.
+- [] Replace score counter with a combos counter and hit sound effects.
+- [] Add more characters.
+- [] Increase number of cards flipped and needed to be matched.
+- [] Add more levels that will increase diffculty pertaining to more cards needing to be matched.
+- [] Increase over all user interaction and user experience by making the game more dynamic.
+
 </div>
