@@ -7,9 +7,9 @@
     src: url(fonts/mortalkombat1.ttf) format('truetype');
 }
 
-* {
+/* * {
     color: red;
-}
+} */
 body {
     background-image: url(images/thepit.jpeg);
     background-size: cover;
@@ -42,10 +42,12 @@ h2 {
 h3 {
     font-size: 40px;
     text-align: center;
+    color: red;
 }
 
 .results {
     font-size: 20px;
+    color: yellow;
 }
 
 #game-board{
@@ -58,8 +60,8 @@ h3 {
 }
 
 img {
-    height: calc(15% - 5px);
-    width: calc(13.33% - 5px);
+    height: calc(12% - 5px);
+    width: calc(10.33% - 5px);
     margin: 5px;
 }
 
