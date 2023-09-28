@@ -41,12 +41,14 @@ h2 {
     text-align: center;
     color: yellow;
     padding-top: 5px;
+    margin-top: 0px;
 }
 
 h3 {
     font-size: 40px;
     text-align: center;
     color: red;
+    margin-top: 5px;
 }
 
 .results {

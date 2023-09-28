@@ -29,8 +29,19 @@ Click the following link to be redirected to the Wireframe and Design Inspiratio
 </div>
 
 <div align='center'>
-    <h2>:closed-fist: Round One</h2>
-</div>
-<h2>Main Menu</h2>
+
+## 👊 Main Menu
 
 <img width="1440" alt="Screenshot 2023-09-28 at 12 32 37 PM" src="https://github.com/gryantbilgan/Memory-Game/assets/125223778/41eeb8ea-3cf3-483c-aebf-78a915d8e0b7">
+
+
+
+
+
+
+
+
+
+
+
+</div>
