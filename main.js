@@ -85,7 +85,7 @@
   //score
   let score;
   let shuffledCards;
-  let cardsSelected = [];
+  let firstPickedCard = null;
 
 
 
@@ -135,13 +135,13 @@
     //call shuffle cards function
     shuffleCards();
     //call render function
-    renderText();
+    renderGameText();
     //call render cards function
     renderCards();
   }
 
   //game render function
-  function renderText () {
+  function renderGameText () {
     //set guesses display to current guess remaining
     guessDisplay.innerText = `Guesses Left: ${guesses}`;
     //set score display to current score
@@ -167,54 +167,52 @@
   //handle card click function
   function handleCardClick (event) {
     //get the card clicked element
-    
-    const clickedCard = event.target;
-    
+    const clickedCardEl = event.target;
     //check if card clicked is matched or not
-    if (cardsMatched.includes(clickedCard)) {
+    if (cardsMatched.includes(clickedCardEl)) {
       //if it is, do nothing
-      
       return;
     }
-    //changing the id into a string
-    const clickedCardIdx = parseInt(clickedCard.getAttribute('data-id'));
-    //get the card object from the shuffled cards array using index
-    
+
+    //changing the id into a number and store it into a variable
+    const clickedCardIdx = parseInt(clickedCardEl.getAttribute('data-id'));
+    //get the card object from the shuffled cards array using index and store that into a variable
     const clickedCardObj = shuffledCards[clickedCardIdx];
-    
-    //check if there are already two cards selected
-    if (selectedCard.length < 2) {
-      //add the clicked card to the selected cards array by assigning and element and an object
-      cardsSelected.push({cardEl: clickedCard, cardObj: clickedCardObj});
-      
+    //check if there has already been a card selected
+    if (firstPickedCard === null) {
+      //assigning the clicked card object and element as selected card
+      firstPickedCard = {cardEl: clickedCardEl, cardObj: clickedCardObj}
       //flip the card to show its image by grabbing it by its property
-      clickedCard.setAttribute('src', clickedCardObj.img);
-      
-    }
-    //check if two cards have been selected
-    if (cardsSelected.length === 2) {
-      //compare the two cards to see if there is a through their index an property
-      if (cardsSelected[0].cardObj.name === cardsSelected[1].cardObj.name) {
-        //increment score if matched
+      clickedCardEl.setAttribute('src', clickedCardObj.img);
+    } else {
+      //flip the second card
+      clickedCardEl.setAttribute('src', clickedCardObj.img);
+         //if the first card object I've picked matches with the curent clicked card
+      if (firstPickedCard.cardObj.name === clickedCardObj.name) {
+        //card matched
+        //increment score by one
         score += 1;
         //push the two matched cards into an array
         // cardsMatched.push(cardsSelected[0].cardEl, cardsSelected[1].cardEl);
-        //clear cards selected array
-        cardsSelected = [];
+        //return the first card picked value to null
+        firstPickedCard = null;
       } else {
-        //if they don't match, remove a guess
+        //if they don't match, remove a guess and guess again
         guesses -= 1;
+
+        //delay for .5 seconds before flip back
         setTimeout(() => {
           //after a short delay, flip unmatched cards back
-          cardsSelected[0].cardEl.setAttribute('src', 'images/mklogo.png');
-          cardsSelected[1].cardEl.setAttribute('src', 'images/mklogo.png');
-          cardsSelected = [];
-          //clear cards selected array
-          //delay for .5 seconds before flip back
+          firstPickedCard.cardEl.setAttribute('src', 'images/mklogo.png');
+          //in this case the clicked card element is the current picked card
+          clickedCardEl.setAttribute('src', 'images/mklogo.png');
+          //return the first card picked value to null
+          firstPickedCard = null;
         }, 500);
       }
-      //update game display
-      renderText();
+
+      //update game text
+      renderGameText();
       if (score === WINNING_SCORE || guesses === 0) {
         checkWin();
       }
@@ -223,21 +221,21 @@
   
   //check if game is over
   function checkWin() {
-    //if the state score increments to the set score
+    //if the state score increments to the set score game won
     if (score === WINNING_SCORE) {
-      // debugger
       scoreDisplay.innerText = "Victory";
-      console.log("Victory!");
-    } else if (guesses === 0) {
+    } 
+    //if the guesses decrements to 0 then game over
+    if (guesses === 0) {
       guessDisplay.innerText = "You Lose!"
-      console.log("You lose!");
     }
+
     //press start button is replaced with rematch button
     initButton.innerText = "Rematch?"
     //button is re-enabled at end of game
     initButton.disabled = false;
-    //button is returned to the display at end of game
-    initButton.style.display = "block";
+    initButton.style.display = "inline-block";
+    //reset the game board
     gameBoard.innerHTML = "";
 }
   
