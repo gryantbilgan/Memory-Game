@@ -198,11 +198,11 @@ function handleCardClick (event) {
 function checkWin() {
   // if the state score increments to the set score game won
   if (score === WINNING_SCORE) {
-    scoreDisplay.innerText = "Victory";
+    scoreDisplay.innerText = "Victory!";
   } 
   // if the guesses decrements to 0 then game over
   if (guesses === 0) {
-    guessDisplay.innerText = "You Lose!"
+    guessDisplay.innerText = "Defeat!"
   }
 
   // press start button is replaced with rematch button
