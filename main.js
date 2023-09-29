@@ -1,6 +1,6 @@
 /*----- constants -----*/
 // the amount of guess the player has
-const INITIAL_GUESSES = 12;
+const INITIAL_GUESSES = 10;
 // score needed to win
 const WINNING_SCORE = 6;
 // id of the gameboard arena elment
