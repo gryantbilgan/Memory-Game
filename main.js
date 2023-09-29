@@ -155,7 +155,7 @@ function handleCardClick (event) {
   const clickedCardObj = shuffledCards[clickedCardIdx];
   // check if there has already been a card selected
   if (firstPickedCard === null) {
-    // assigning the clicked card object and element as selected card
+    // assigning the clicked card object and element as first card that is picked
     firstPickedCard = {cardEl: clickedCardEl, cardObj: clickedCardObj}
     // flip the card to show its image by grabbing it by its property
     clickedCardEl.setAttribute('src', clickedCardObj.img);
