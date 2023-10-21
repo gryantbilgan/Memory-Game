@@ -183,7 +183,7 @@ function handleCardClick (event) {
         clickedCardEl.setAttribute('src', 'images/mklogo.png');
         // return the first card picked value to null
         firstPickedCard = null;
-      }, 300);
+      }, 500);
     }
 
     // update game text
