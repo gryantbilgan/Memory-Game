@@ -1,16 +1,18 @@
 /*----- constants -----*/
 // the amount of guess the player has
-const INITIAL_GUESSES = 10;
+// const INITIAL_GUESSES = 100;
 // score needed to win
-const WINNING_SCORE = 6;
+// const WINNING_SCORE = 0;
+const PLAYER_HP = 100;
+const ENEMY_HP = 100;
 // id of the gameboard arena elment
 const GAMEBOARD_ID = 'game-board';
 // id of the start button element
 const INIT_BUTTON_ID = 'init-button';
 // id of the guesses remaining element
-const GUESSES_DISPLAY_ID = 'guesses';
+const GUESSES_DISPLAY_ID = 'player1';
 // id of the score display element
-const SCORE_DISPLAY_ID = 'score';
+const SCORE_DISPLAY_ID = 'player2';
 // an array of all cards
 const CARD_ARRAY = [
   {
@@ -65,9 +67,10 @@ const CARD_ARRAY = [
 
 
 /*----- state variables -----*/
-let guesses;
+let playerHp;
+let enemyHp;
 let cardsMatched = [];
-let score;
+let hit = 10;
 let shuffledCards;
 let firstPickedCard = null;
 
@@ -97,9 +100,10 @@ gameBoard.addEventListener('click', handleCardClick);
 // game initialize function
 function initializeGame() {
   //set score to 0
-  score = 0;
+  playerHp = PLAYER_HP;
   //set guesses to 0
-  guesses = INITIAL_GUESSES;
+  enemyHp = ENEMY_HP;
+  // guesses = INITIAL_GUESSES;
   //have an empty array because no cards have been matched
   cardsMatched = [];
   //set blank gameboard
@@ -111,17 +115,21 @@ function initializeGame() {
   //call shuffle cards function
   shuffleCards();
   //call render function
-  renderGameText();
+  renderHealthBar();
   //call render cards function
   renderCards();
 }
 
 // game render function
-function renderGameText () {
+function renderHealthBar () {
   // set guesses display to current guess remaining
-  guessDisplay.innerText = `Guesses Left: ${guesses}`;
-  // set score display to current score
-  scoreDisplay.innerText = `Score: ${score}`;
+  // guessDisplay.innerText = `Guesses Left: ${guesses}`;
+  // // set score display to current score
+  // scoreDisplay.innerText = `Score: ${score}`;
+  setInterval(() => {
+    guessDisplay.value = enemyHp;
+    scoreDisplay.value = playerHp;
+  }, 1)
 }
 
 // render cards function
@@ -166,14 +174,14 @@ function handleCardClick (event) {
     if (firstPickedCard.cardObj.name === clickedCardObj.name) {
     // card matched
       // increment score by one
-      score += 1;
+      playerHp -= hit;
       // push the two matched cards into the matched array
       cardsMatched.push(firstPickedCard.cardEl, clickedCardEl);
       // return the first card picked value to null
       firstPickedCard = null;
     } else {
       // if they don't match, remove a guess and guess again
-      guesses -= 1;
+      enemyHp -= hit;
 
       // delay for .5 seconds before flip back
       setTimeout(() => {
@@ -187,8 +195,8 @@ function handleCardClick (event) {
     }
 
     // update game text
-    renderGameText();
-    if (score === WINNING_SCORE || guesses === 0) {
+    renderHealthBar();
+    if (hp === 0) {
       checkWin();
     }
   }

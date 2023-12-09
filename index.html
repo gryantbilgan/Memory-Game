@@ -13,12 +13,14 @@
         <h2>Test Your Mind</h2>
         <h3>Fight</h3>
         <!-- Container for results -->
-        <section class="results">
+        <div class="healthbar">
             <!-- Container for score display -->
-            <h4 id="score"></h4>
+            <h4>Player 2</h4>
+            <progress value="100" max="100" id="player2"></progress>
             <!-- Container for guesses left -->
-            <h4 id="guesses"></h4>
-        </section>
+            <h4>Player 1</h4>
+            <progress value="100" max="100" id="player1"></progress>
+        </div>
         <div id="game-board"></div>
         <!-- game content goes here -->
         <button id="init-button">Press Start</button>
